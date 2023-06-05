@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const uuld = require('uuid')
+const uuid = require('uuid')
 let users = require('../../Users')
 
 //get all users
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
 //create a new user
 router.post('/', (req, res) => {
     const newUser = {
-        id:uuid.v4(),
+        id: uuid.v4(),
         name: req.body.name,
         email: req.body.email
     }
