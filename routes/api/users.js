@@ -17,6 +17,22 @@ router.get('/:id', (req, res) => {
     } else {
         res.sendStatus(400);
     }
+});
+
+//create a new user
+router.post('/', (req, res) => {
+    const newUser = {
+        id:uuid.v4(),
+        name: req.body.name,
+        email: req.body.email
+    }
+
+    if(!newUser.name || !newUser.email) {
+        return res.sendStatus(400)
+    }
+
+    users.push(newUser)
+    res.json(users)
 })
 
 module.exports = router
